@@ -77,7 +77,7 @@ const routes: AppRouteConfig[] = [
           projectName: "Floodgate Bungee Proxy",
           groupId: "org.geysermc.floodgate",
           artifactId: "bungee",
-          acceptedVersions: ["feat-fix_proxy_library_clash-.*"]
+          acceptedVersions: ["proxy-.*"]
         }
       },
       {
@@ -90,7 +90,7 @@ const routes: AppRouteConfig[] = [
           projectName: "Floodgate Velocity Proxy",
           groupId: "org.geysermc.floodgate",
           artifactId: "velocity",
-          acceptedVersions: ["feat-fix_proxy_library_clash-.*"]
+          acceptedVersions: ["proxy-.*"]
         }
       }
     ],
