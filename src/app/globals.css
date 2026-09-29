@@ -1,0 +1,71 @@
+html,
+body {
+  height: 100%;
+}
+
+/*
+ * The main region carries tabindex="-1" only so navigation can move focus into
+ * it for screen readers. It is never reachable by Tab, so the focus ring would
+ * be a border around the whole page with no interactive element behind it.
+ */
+#primary-app-container:focus {
+  outline: none;
+}
+
+/*
+ * Size the brand image.
+ *
+ * PatternFly ships no styles for the masthead logo, and its base reset
+ * (`:where(img, ...) { height: auto }`) outranks the img's height attribute,
+ * so without this the logo renders at its natural 720x192 and pushes the
+ * toggle onto its own row.
+ */
+.pf-v6-c-masthead__logo img {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+}
+
+/*
+ * Build list columns.
+ *
+ * PatternFly gives every cell `flex: 1` so they share the row equally, which
+ * squeezes the commit message onto three lines while the fixed columns keep
+ * space they do not need.
+ *
+ * It does that through a sibling combinator,
+ * `.pf-v6-c-data-list.pf-m-grid-md .pf-v6-c-data-list__cell + .pf-v6-c-data-list__cell`,
+ * which has a specificity of (0,4,0). The `oc-build-list` class on the list is
+ * what lets these rules outrank it rather than relying on source order.
+ *
+ * Scoped to the width at which PatternFly lays the list out in columns. Below
+ * it the cells stack, and fixed widths would break that.
+ */
+@media screen and (min-width: 48rem) {
+  .pf-v6-c-data-list.pf-m-grid-md.oc-build-list .pf-v6-c-data-list__cell.oc-build__id {
+    flex: 0 0 5rem;
+  }
+
+  .pf-v6-c-data-list.pf-m-grid-md.oc-build-list .pf-v6-c-data-list__cell.oc-build__published {
+    flex: 0 0 12rem;
+  }
+
+  .pf-v6-c-data-list.pf-m-grid-md.oc-build-list .pf-v6-c-data-list__cell.oc-build__message {
+    /*
+     * Basis of 0 rather than auto. With auto the cell is sized to its content,
+     * so a long commit message widens the row and pushes the buttons onto a
+     * second line. Growing from zero fills the space without overflowing.
+     */
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .pf-v6-c-data-list.pf-m-grid-md.oc-build-list .pf-v6-c-data-list__cell.oc-build__action {
+    flex: 0 0 auto;
+  }
+}
+
+.oc-build__published {
+  color: var(--pf-t--global--text--color--subtle);
+  white-space: nowrap;
+}

@@ -1,3 +1,0 @@
-{
-	"*.{j,t}s": ["eslint", "prettier --write"]
-}

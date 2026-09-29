@@ -1,23 +1,30 @@
-**/.DS_STORE
-db/
-dist/
-node_modules
-database.db
-tsconfig.tsbuildinfo
-files/
-assets/cache
-.env
-config.json
-assets/cacheMisses
+**/.DS_Store
+**/.git
+**/node_modules
 
-.vscode/settings.json
+# Next.js build artefacts — always rebuilt inside the image.
+.next
+out
+next-env.d.ts
+
+# Tests and test tooling. The image build runs `next build` only.
+test
+vitest.config.ts
+lint-staged.config.ts
+.husky
+
+# Local tooling / editor state
+.vscode/
 .idea/
+coverage
+*.tsbuildinfo
 
-build
+# Secrets and local config must never enter the build context.
+.env
+.env.*
+config.json
 
 *.log
 *.log.ansi
 *.tmp
 tmp/
-dump/
-result

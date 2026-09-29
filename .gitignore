@@ -1,10 +1,27 @@
 **/node_modules
-dist
-yarn-error.log
-yarn.lock
-stats.json
-coverage
-storybook-static
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Testing
+/coverage
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editors and OS
 .DS_Store
 .idea
+.vscode
+
+# TypeScript
+*.tsbuildinfo
+
+# Secrets and local env
 .env
+.env*.local
+*.pem

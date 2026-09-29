@@ -1,1 +1,6 @@
-package.json
+package-lock.json
+next-env.d.ts
+.next
+out
+coverage
+public
